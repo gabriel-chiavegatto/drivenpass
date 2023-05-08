@@ -15,17 +15,20 @@ async function createCredential(data: Prisma.CredentialCreateInput) {
         data
     })
 }
-async function findCredentials(userId: number) {
+async function findUserCredentials(userId: number) {
     return prisma.credential.findMany({
-        where: {
-            userId
-        }
+        where: { userId }
     })
 }
-async function deleteCredential(id: number) {
+async function findCredentialsById(id: number) {
+    return prisma.credential.findFirst({
+        where: { id }
+    })
+}
+async function deleteCredentialById(id: number) {
     return prisma.credential.delete({
         where: { id }
     })
 }
 
-export { findTitleByUserId, createCredential, findCredentials, deleteCredential }
+export { findTitleByUserId, createCredential, findUserCredentials, findCredentialsById, deleteCredentialById }
