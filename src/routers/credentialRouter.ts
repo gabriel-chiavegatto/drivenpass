@@ -8,6 +8,6 @@ credentialRouter
     .all("/*", authenticateToken)
     .post("/",createCredential)
     .get("/", getCredentials)
-    .delete("/", deleteSomeCredential)
+    .delete("/:id", deleteSomeCredential)
 
 export {credentialRouter}

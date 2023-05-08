@@ -39,6 +39,6 @@ async function findCredentials(userId: number, id: number) {
 
 }
 async function deleteCredential(id: number) {
-
+    deleteCredentialById(id)
 }
 export { newCredential, findCredentials, deleteCredential }

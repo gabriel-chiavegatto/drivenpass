@@ -36,8 +36,15 @@ async function getCredentials(req: AuthenticatedRequest, res: Response) {
     }
 }
 
-async function deleteSomeCredential(req,res) {
+async function deleteSomeCredential(req: AuthenticatedRequest, res: Response) {
+    const { id } = req.params;
 
+    try {
+        await deleteCredential(Number(id))
+        res.sendStatus(202)
+    } catch (error) {
+        res.status(422).send(error.message)
+    }
 }
 
 export { createCredential, getCredentials, deleteSomeCredential }
