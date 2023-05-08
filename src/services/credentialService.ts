@@ -22,8 +22,21 @@ async function newCredential(credential: Prisma.CredentialCreateInput, userId: n
     if (!created) throw new Error("Can`t create your credential, try again")
 }
 async function findCredentials(userId: number, id: number) {
-    if (!id) return findUserCredentials(userId)
-    return findCredentialsById(id)
+    if (!id) {
+        const credentials = await findUserCredentials(userId)
+        credentials.forEach(credential => {
+            console.log('here')
+            const decryptedPassword = cryptr.decrypt(credential.password)
+            credential.password = decryptedPassword
+        })
+        return credentials
+    }
+    else {
+        const credential = await findCredentialsById(id);
+        const decryptedPassword = cryptr.decrypt(credential.password)
+        return { ...credential, password: decryptedPassword }
+    }
+
 }
 async function deleteCredential(id: number) {
 

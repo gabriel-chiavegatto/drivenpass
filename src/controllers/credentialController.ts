@@ -36,4 +36,8 @@ async function getCredentials(req: AuthenticatedRequest, res: Response) {
     }
 }
 
-export { createCredential,getCredentials }
+async function deleteSomeCredential(req,res) {
+
+}
+
+export { createCredential, getCredentials, deleteSomeCredential }
