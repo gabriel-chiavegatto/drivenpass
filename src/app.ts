@@ -2,6 +2,7 @@
 import express, { Express } from 'express';
 import { connectDb, disconnectDB } from './config/database.js';
 import { userRouter } from './routers/userRouter.js';
+import { credentialRouter } from './routers/credentialRouter.js';
 
 import cors from 'cors'
 import dotenv from 'dotenv';
@@ -16,6 +17,7 @@ app
     .use(express.json())
     .get('/health', (_req, res) => res.send('OK!'))
     .use('/user', userRouter)
+    .use("/credential", credentialRouter)
 
 export function init():Promise<Express>{
     connectDb();
