@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx dotenv -e .env.test npx jest -- --forceExit",
+    "coverage": "npm run test -- --coverage",
     "start": "node dist/server.js",
     "build": "npx tsc",
     "dev": "nodemon src/server.ts"
@@ -21,6 +22,7 @@
     "express": "^4.18.2",
     "http-status": "^1.6.2",
     "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
     "npm": "^9.6.6"
   },
   "devDependencies": {
