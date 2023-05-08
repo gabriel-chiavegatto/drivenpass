@@ -10,7 +10,7 @@ async function newUser({ email, password }) {
 
     const hashPassword = await bcrypt.hash(password, 10)
 
-    return userRepository.create({
+    return userRepository.createUser({
         email,
         password: hashPassword
     })
@@ -25,7 +25,12 @@ async function userLogin({ email, password }) {
     const userID = user.id;
 
     const token = jwt.sign({ userID }, process.env.JWT_SECRET);
+
     // CRIAR SESSÃO???
+    const userSession = await userRepository.findSessionByUserId(userID)
+    if (userSession) { await userRepository.updateSession(userSession.id, token) }
+    else { await userRepository.createSession(userID, token) }
+
 
     return { token }
 }

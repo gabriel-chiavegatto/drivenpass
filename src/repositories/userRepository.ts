@@ -9,8 +9,39 @@ async function findByEmail(email: string) {
     })
 }
 
-async function create(data:Prisma.UserCreateInput) {
+async function createUser(data: Prisma.UserCreateInput) {
     return prisma.user.create({ data });
 }
 
-export default { findByEmail, create }
+async function findSessionByUserId(userId: number) {
+    return prisma.session.findFirst({
+        where: {
+            userId
+        }
+    })
+}
+async function createSession(userId: number, token: string) {
+    return prisma.session.create({
+        data: {
+            userId, token
+        }
+    })
+}
+async function updateSession(id: number, token: string) {
+    return prisma.session.update({
+        where: {
+            id
+        },
+        data: {
+            token
+        }
+    })
+}
+
+export default {
+    findByEmail,
+    createUser,
+    findSessionByUserId,
+    createSession,
+    updateSession
+}
