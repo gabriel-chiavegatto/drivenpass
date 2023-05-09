@@ -2,6 +2,8 @@
     "compilerOptions": {
         "outDir": "dist",
         "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "module": "ES6",
         "moduleResolution": "Node",
         "baseUrl": "src",
@@ -22,5 +24,9 @@
     },
     "ts-node": {
         "esm": true
-    }
+    },
+    "include": [
+        "src",
+        "tests"
+    ]
 }

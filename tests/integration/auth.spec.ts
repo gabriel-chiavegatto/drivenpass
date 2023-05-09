@@ -1,4 +1,4 @@
-import app, { init } from "../../src/app";
+import app, {init} from "../../src/app";
 import supertest from "supertest";
 import faker from "@faker-js/faker";
 import { cleanDb } from "../helpers";
