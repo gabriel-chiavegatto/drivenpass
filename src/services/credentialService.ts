@@ -33,12 +33,15 @@ async function findCredentials(userId: number, id: number) {
     }
     else {
         const credential = await findCredentialsById(id);
+        if(credential.userId != userId) throw httpStatus.UNAUTHORIZED
         const decryptedPassword = cryptr.decrypt(credential.password)
         return { ...credential, password: decryptedPassword }
     }
 
 }
-async function deleteCredential(id: number) {
-    deleteCredentialById(id)
+async function deleteCredential(id: number, userId: number) {
+    const credential = await findCredentialsById(id)
+    if(!credential || credential.userId != userId) throw httpStatus.UNAUTHORIZED
+    await deleteCredentialById(id)
 }
 export { newCredential, findCredentials, deleteCredential }
