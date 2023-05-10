@@ -1,4 +1,4 @@
-import app, {init} from "../../src/app";
+import app, { init } from "../../src/app";
 import supertest from "supertest";
 import faker from "@faker-js/faker";
 import { cleanDb } from "../helpers";
@@ -15,9 +15,15 @@ const server = supertest(app);
 
 describe('POST /user', () => {
 
-    it('should respond with status 422 when body is not given', async () => {
+    it('should respond with status 401 when body is not given', async () => {
         const response = await server.post('/user');
-        expect(response.status).toBe(httpStatus.UNPROCESSABLE_ENTITY);
+        expect(response.status).toBe(httpStatus.UNAUTHORIZED);
+    })
+    it('should respond with status 401 when body is not valid', async () => {
+        const body = { email: faker.lorem.work() }
+        const response = await server.post('/user').send(body)
+
+        expect(response.status).toBe(httpStatus.UNAUTHORIZED)
     })
 })
 

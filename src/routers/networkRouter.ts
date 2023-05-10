@@ -1,6 +1,6 @@
-import { authenticateToken } from "../middlewares/authenticationMiddleware.js";
+import { authenticateToken } from "../middlewares/authenticationMiddleware";
 import { Router } from "express";
-import { createNetwork, getNetworks, deleteSomeNetwork } from "../controllers/networkController.js";
+import { createNetwork, getNetworks, deleteSomeNetwork } from "../controllers/networkController";
 
 const networkRouter = Router();
 networkRouter.all("/*", authenticateToken)

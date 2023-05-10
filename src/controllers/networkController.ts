@@ -1,7 +1,7 @@
-import { AuthenticatedRequest } from "../middlewares/authenticationMiddleware.js";
+import { AuthenticatedRequest } from "../middlewares/authenticationMiddleware";
 import { Response } from "express";
-import { networkSchema } from "../schemas/networkSchema.js";
-import { newNetwork, viewNetworks, deleteNet } from "../services/networkService.js";
+import { networkSchema } from "../schemas/networkSchema";
+import { newNetwork, viewNetworks, deleteNet } from "../services/networkService";
 import { Prisma } from "@prisma/client";
 
 async function createNetwork(req: AuthenticatedRequest, res: Response) {

@@ -4,7 +4,7 @@ import {
     findUserCredentials,
     findCredentialsById,
     deleteCredentialById
-} from "../repositories/credentialRepository.js";
+} from "../repositories/credentialRepository";
 import { Prisma } from "@prisma/client";
 import Cryptr from "cryptr";
 import httpStatus from "http-status";

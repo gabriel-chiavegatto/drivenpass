@@ -1,9 +1,9 @@
 import { Prisma } from "@prisma/client"
 import { Request, Response, query } from "express"
-import { credentialSchema } from "../schemas/credentialSchema.js"
+import { credentialSchema } from "../schemas/credentialSchema"
 import httpStatus from "http-status"
-import { newCredential, findCredentials, deleteCredential } from "../services/credentialService.js"
-import { AuthenticatedRequest } from "@/middlewares/authenticationMiddleware.js"
+import { newCredential, findCredentials, deleteCredential } from "../services/credentialService"
+import { AuthenticatedRequest } from "@/middlewares/authenticationMiddleware"
 import { number } from "joi"
 
 async function createCredential(req: AuthenticatedRequest, res: Response) {

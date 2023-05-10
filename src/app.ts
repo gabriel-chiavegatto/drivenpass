@@ -1,9 +1,9 @@
 
 import express, { Express } from 'express';
-import { connectDb, disconnectDB } from './config/database.js';
-import { userRouter } from './routers/userRouter.js';
-import { credentialRouter } from './routers/credentialRouter.js';
-import { networkRouter } from './routers/networkRouter.js';
+import { connectDb, disconnectDB } from './config/database';
+import { userRouter } from './routers/userRouter';
+import { credentialRouter } from './routers/credentialRouter';
+import { networkRouter } from './routers/networkRouter';
 import cors from 'cors'
 import dotenv from 'dotenv';
 dotenv.config()

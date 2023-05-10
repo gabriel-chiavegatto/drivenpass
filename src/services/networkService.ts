@@ -1,4 +1,4 @@
-import { createNetwork, deleteNetworkById, findNetworkById, findUserNetworks } from "../repositories/networkRepository.js";
+import { createNetwork, deleteNetworkById, findNetworkById, findUserNetworks } from "../repositories/networkRepository";
 import { Prisma } from "@prisma/client";
 import Cryptr from "cryptr";
 import httpStatus from "http-status";

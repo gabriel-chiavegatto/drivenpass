@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import httpStatus from 'http-status';
-import { prisma } from '../config/database.js';
+import { prisma } from '../config/database';
 import { Request, Response, NextFunction } from 'express';
 
 export async function authenticateToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {

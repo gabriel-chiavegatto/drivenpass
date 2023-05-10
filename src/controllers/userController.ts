@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { newUser,userLogin } from "../services/userService.js";
-import { authSchema } from "../schemas/authSchema.js";
+import { newUser,userLogin } from "../services/userService";
+import { authSchema } from "../schemas/authSchema";
 
 export async function createUser(req:Request, res:Response){
     const {email, password} = req.body;
